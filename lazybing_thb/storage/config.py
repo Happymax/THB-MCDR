@@ -136,7 +136,7 @@ class Configuration(Serializable):
         except Exception as e:
             result_config = default_config.copy()
             needs_save = True
-            cls.log('server_interface.load_config_simple.failed', e)
+            cls.log('mcdreforged.server_interface.load_config_simple.failed', e)
         else:
             result_config = read_data
             if default_config is not None:
@@ -144,16 +144,16 @@ class Configuration(Serializable):
                 for key, value in default_config.items():
                     if key not in read_data:
                         result_config[key] = value
-                        cls.log('server_interface.load_config_simple.key_missed', key, value)
+                        cls.log('mcdreforged.server_interface.load_config_simple.key_missed', key, value)
                         needs_save = True
-            cls.log('server_interface.load_config_simple.succeed')
+            cls.log('mcdreforged.server_interface.load_config_simple.succeed')
 
         try:
             result_config = cls.deserialize(result_config)
         except Exception as e:
             result_config = cls.get_default()
             needs_save = True
-            cls.log('server_interface.load_config_simple.failed', e)
+            cls.log('mcdreforged.server_interface.load_config_simple.failed', e)
 
         if needs_save:
             result_config.save()
