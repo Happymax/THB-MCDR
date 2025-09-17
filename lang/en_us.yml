@@ -22,7 +22,7 @@ lazybing_thb:
 
   teleport:
     after_teleport:
-      text: Teleport finished. Use {undo_command} to undo teleport
+      text: Teleport finished. §7Click here§r to undo teleport (Go back to previous location)
       hover: Click here to undo teleport
     not_online: Player {} is not online
 
